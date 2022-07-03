@@ -14,20 +14,31 @@ function send_1(){
         if(ms_time < def){
             return false;
         }
+
         var final = GET_W();
+
         if(final == null){
             return null;
         }
         if(!final){
             return null ;
         }
-        document.getElementById('text').innerHTML = final;
-        document.getElementById('text_1').innerHTML = final;
-        var now =  new Date();
-        var now_time = now.getTime();
-        document.getElementById('time_p').innerHTML = now_time;
-        document.getElementById('send_1').click();
-        return;
+
+        var  lines = final.split("\n");
+        var lines_re = Array.isArray(lines);
+        if(lines_re){
+        var count_l =  lines.length;
+            for(var i = 0;i < count_l;i++){
+                document.getElementById('parts_send').innerHTML += '<p>'+lines[i]+'</p>';
+            }
+
+        }else{
+            document.getElementById('parts_send').innerHTML += '<p>'+lines+'</p>';
+        }
+        
+
+
+       send_2();
     }
     var final = GET_W();
     if(final == null){
@@ -42,6 +53,34 @@ function send_1(){
     var now_time = now.getTime();
     document.getElementById('time_p').innerHTML = now_time;
     document.getElementById('send_1').click();
+}
+
+function send_2(){
+    var child1 = document.getElementById('parts_send').childNodes.length;
+    if(child1 == 1){
+        var final = document.getElementById('parts_send').childNodes[0].innerHTML;
+
+        document.getElementById('text').innerHTML = final;
+        document.getElementById('text_1').innerHTML = final;
+        var now =  new Date();
+        var now_time = now.getTime();
+        document.getElementById('time_p').innerHTML = now_time;
+        document.getElementById('send_1').click();
+    }
+
+    if(child1 > 1){
+        for(var i = 0;i < child1;i++){
+            var final = document.getElementById('parts_send').childNodes[i].innerHTML;
+
+            document.getElementById('text').innerHTML = final;
+            document.getElementById('text_1').innerHTML = final;
+            document.getElementById('send_1').click();
+        }
+        var now =  new Date();
+        var now_time = now.getTime();
+        document.getElementById('time_p').innerHTML = now_time;
+    }
+
 }
 
 setInterval(send_1, 200);
