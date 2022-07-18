@@ -54,7 +54,8 @@ function send_1(){
         document.getElementById('send_1').click();
         return;
     }
-    var final = GET_W();
+    
+    var final = start();
     if(final == null){
         return null ;
     }
@@ -77,9 +78,11 @@ function send_2(){
     document.getElementById('send_1').click();
 }
 
-// setInterval(send_2, 3600000);
 
-// setTimeout(send_2, 500);
+
+//  setInterval(send_1, 500);
+
+// setTimeout(send_1, 500);
 // setTimeout(send_2_big_m, 500);
 
 // var stop = setInterval(send_1, 500);setInterval(send_2_big_m, 500);

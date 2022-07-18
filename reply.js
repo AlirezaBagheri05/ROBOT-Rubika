@@ -778,8 +778,9 @@ for(var i = 0;i < bank.length;i++){
         } 
     }
     
-    d1="کص"; 
-    var bank = [d1,]; 
+    d1="کص";
+    d2="کس"; 
+    var bank = [d1,d2]; 
     for(var i = 0;i < bank.length;i++){ 
          var an = search(value , bank[i]); 
          if(an){ 

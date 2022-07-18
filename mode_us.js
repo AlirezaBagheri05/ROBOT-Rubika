@@ -166,8 +166,8 @@ function know_preson(name,value,MY_BOT,Last_MS,Last_MS_1,type_us,name_base){
                 ANS += name_ms + '  :  '+ms_user_length+'\n';
             }
         }
-        ANS += 'تعداد افراد فعال گپ'+' : '+(users_length-1)+'\n';
-        ANS += 'تعداد کل پیام :'+' '+all_ms;
+        ANS += '\n'+'⊶'+'تعداد افراد فعال گپ'+' : '+(users_length-1)+'\n';
+        ANS += '⊷'+'تعداد کل پیام :'+' '+all_ms;
         return Statistics(ANS);
    }      
 
@@ -255,6 +255,9 @@ if(submit ){
 }
 
 function unknow_person(name,value,MY_BOT,Last_MS,Last_MS_1){
+    if(name == ''){
+        return false;
+    }
     ans = search(value , 'اسمم');
     if(ans){
         var ans1 = search(value , 'دخترم');
@@ -277,8 +280,7 @@ function unknow_person(name,value,MY_BOT,Last_MS,Last_MS_1){
         }
     }
 
-    var ANS = short_ANS('unknow')+'\n'+'\n';
-    ANS += 'لطفا اسم و جنسیت خود را مانند مثال های زیر بفرستید'+'\n'+'\n';
-    ANS += 'مثل : اسمم بهار دخترم\nمثل : اسمم مهدی پسرم';
-    return ANS;
+    var ANS = short_ANS('unknow')+'\n\n';
+    ANS += 'اسمم بهار دخترم ⓵\nاسمم مهدی پسرم ⓶';
+    return validate(ANS);
 }

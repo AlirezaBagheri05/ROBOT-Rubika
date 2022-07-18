@@ -8,41 +8,41 @@ function GET_W(){
     var Last_MS = document.getElementsByClassName('bubbles-date-group')[count-1];
     var Last_MS_1 = document.getElementsByClassName('bubbles-date-group')[count-2];
 
-               var LF = Last_MS.getElementsByClassName('service-msg')[0];
-               var LF_us = Last_MS.contains(LF);
-               if(LF_us){
-                       var left = Last_MS.getElementsByClassName('service-msg')[0].hasChildNodes();
-                       if(left){
-                               var left_a = Last_MS.getElementsByClassName('service-msg')[0].childNodes[0].hasChildNodes();
-                               if(left_a){
-                                   var left_b = Last_MS.getElementsByClassName('service-msg')[0].childNodes[0].childNodes[9].hasChildNodes();
-                                   if(left_b){
-                                       var left_1 = Last_MS.getElementsByClassName('service-msg')[0].childNodes[0].childNodes[9].innerHTML;
-                                       if( left_1 == 'ترک گروه '){
-                                           var ANS = short_ANS("left");
-                                           return ANS;
-                                       }
-                                   }
-                               }
+            //    var LF = Last_MS.getElementsByClassName('service-msg')[0];
+            //    var LF_us = Last_MS.contains(LF);
+            //    if(LF_us){
+            //            var left = Last_MS.getElementsByClassName('service-msg')[0].hasChildNodes();
+            //            if(left){
+            //                    var left_a = Last_MS.getElementsByClassName('service-msg')[0].childNodes[0].hasChildNodes();
+            //                    if(left_a){
+            //                        var left_b = Last_MS.getElementsByClassName('service-msg')[0].childNodes[0].childNodes[9].hasChildNodes();
+            //                        if(left_b){
+            //                            var left_1 = Last_MS.getElementsByClassName('service-msg')[0].childNodes[0].childNodes[9].innerHTML;
+            //                            if( left_1 == 'ترک گروه '){
+            //                                var ANS = short_ANS("left");
+            //                                return ANS;
+            //                            }
+            //                        }
+            //                    }
 
-                       }
-               }
+            //            }
+            //    }
                
-               var JO = Last_MS.getElementsByClassName('service-msg')[0];
-               var JO_us = Last_MS.contains(JO);
-               if(JO_us){
-                       var join = Last_MS.getElementsByClassName('service-msg')[0].hasChildNodes();
-                       if(join){
-                               var join_a = Last_MS.getElementsByClassName('service-msg')[0].childNodes[0].childNodes[4].hasChildNodes();
-                               if(join_a){
-                                   var join_1 = Last_MS.getElementsByClassName('service-msg')[0].childNodes[0].childNodes[4].innerHTML;
-                                   var join_us = join_1.indexOf("پیوست");
-                                   var ANS = short_ANS("welcome");
-                                   return ANS;
-                               }
+            //    var JO = Last_MS.getElementsByClassName('service-msg')[0];
+            //    var JO_us = Last_MS.contains(JO);
+            //    if(JO_us){
+            //            var join = Last_MS.getElementsByClassName('service-msg')[0].hasChildNodes();
+            //            if(join){
+            //                    var join_a = Last_MS.getElementsByClassName('service-msg')[0].childNodes[0].childNodes[4].hasChildNodes();
+            //                    if(join_a){
+            //                        var join_1 = Last_MS.getElementsByClassName('service-msg')[0].childNodes[0].childNodes[4].innerHTML;
+            //                        var join_us = join_1.indexOf("پیوست");
+            //                        var ANS = short_ANS("welcome");
+            //                        return ANS;
+            //                    }
 
-                       }
-               }
+            //            }
+            //    }
     
     var MS = Last_MS.getElementsByClassName('message')[0];
     var MS_us = Last_MS.contains(MS);
