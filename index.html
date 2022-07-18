@@ -5,29 +5,54 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
+    <style>
+        #state_bot{
+            display: flex;
+            justify-content: space-between;
+            border-radius: 5px;
+            border: 2px solid #8774e1;
+            padding: 5px;
+        }
+        #users_person{
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            overflow: auto;
+        }
+        .nameBot_user{
+            padding: 5px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border: 2px solid #8774e1;
+            border-radius: 30px;
+            margin: 2px;
+        }
+    </style>
     <body>
-        <div >
-            <p id="time">5000</p>
-            <p id="time_p">start</p>
-            <p id="Result">0</p>
-            <p id="text_1"></p>
-            <div id="parts_send"></div>
-            <div>
-                <div id="users">
-                </div>
-            </div>
-        </div>
         <div>
-            <p  id="Result_2">off</p>
-            <p  id="mood">off</p>
-            <p  id="type">us</p>
-            <div>
+            <div id="state_bot">
+                <p id="time">5000</p>
+                <p id="time_p">start</p>
+                <p id="Result">0</p>
+                <p  id="Result_2">off</p>
+                <p  id="mood">off</p>
+                <p  id="type">us</p>
                 <p id="num">0</p>
                 <p id="step">0</p>
+            </div>
+            <div style="display:none;" id="users">
+            </div>
+            <div style="display:none;">
+                <p id="text_1"></p>
                 <div id="d_user"></div>
                 <div id="c_user"></div>
             </div>
+            <div>
+                <div id="users_person"></div>
+            </div>
         </div>
+        <div></div>
 <!--  
         id text message = text
         id send message = send_1

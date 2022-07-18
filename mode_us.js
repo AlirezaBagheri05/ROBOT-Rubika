@@ -1,13 +1,52 @@
 function mode_us(name,value,MY_BOT,Last_MS,Last_MS_1){
+
+    var person = document.getElementById('users_person');
+    var person_veri = person.childElementCount;
+    if(person_veri !== '0'){
+        var persons = person.childNodes;
+        var count = persons.length;
+        for(var i=0;i < count;i++){
+            var name_person = persons[i].getAttribute('name');
+            if(name_person == name){
+                var name_us = persons[i].childNodes[0].innerHTML;
+                var type_us = persons[i].childNodes[1].innerHTML;
+                var name_base = name;
+                return know_preson(name_us,value,MY_BOT,Last_MS,Last_MS_1,type_us,name_base);
+            }
+        }
+        return unknow_person(name,value,MY_BOT,Last_MS,Last_MS_1);
+    }
+    return unknow_person(name,value,MY_BOT,Last_MS,Last_MS_1);
+}
+
+function know_preson(name,value,MY_BOT,Last_MS,Last_MS_1,type_us,name_base){
+    if(value == 'منو از حافظت پاک کن'){
+
+         var person = document.getElementById('users_person');
+        var person_veri = person.childElementCount;
+        if(person_veri !== '0'){
+            var persons = person.childNodes;
+            var count = persons.length;
+            for(var i=0;i < count;i++){
+                var name_person = persons[i].getAttribute('name');
+                if(name_person == name_base){
+                    person.removeChild(person.childNodes[i]);
+                    return 'اطلاعات شما پاک شد.';
+                }
+            }
+           
+        }
+        
+    }
     if(value == 'حالت هوشمند خاموش'){
         document.getElementById('mood').innerHTML = 'off';
          var ANS = short_ANS("off_mood");
-         return '______ #State' + '\n'+ANS;
+         return state(ANS);
     }
     if(value == 'حالت هوشمند روشن'){
         var OFFON =document.getElementById('mood').innerHTML = 'on';
          var ANS = short_ANS("on_mood");
-         return '______ #State' + '\n'+ANS;
+         return state(ANS);
     }
    var ans = search(value , 'حالت ارام');
    if(ans){
@@ -17,13 +56,14 @@ function mode_us(name,value,MY_BOT,Last_MS,Last_MS_1){
         var time_n = value.substring((pos_1+1),pos_2);
         document.getElementById('time').innerHTML = time_n;
         var ANS = short_ANS("time");
-        return '______ #State' + '\n'+ANS;
+         return state(ANS);
    }
     var ans = search(value , 'ربات');
     var ans_1 = search(value , 'بات');
     var ans_2 = search(value , 'گاگولی');
    if(ans || ans_1 || ans_2){
-        var ANS =  message_reply(value);
+        var ANS =  short_ANS(type_us)+'\n';
+        ANS +=  message_reply(value);
         return ANS;
    }
    var ans = search(value , 'راهنما');
@@ -35,14 +75,20 @@ function mode_us(name,value,MY_BOT,Last_MS,Last_MS_1){
    ans = search(value , 'فال' );
    if(ans){
            var FAl = Game_FAl();
-           var ANS = '______ #Omen' + '\n\n' +name +" "+ 'جونم' + ' '+"اینم فالی که برات گرفتم"+" \n\n "+FAl;
-           return ANS;
+           var ANS = name +" "+ 'جونم' + ' '+"اینم فالی که برات گرفتم"+" \n\n "+FAl;
+            return Omen(ANS);
+   }   
+   ans = search(value , 'اعتراف' );
+   if(ans){
+           var ETR = Game_ETR();
+           var ANS = name +" "+ 'جونم' + ' '+"اینم ی اعتراف از ی بنده خدا"+" \n\n "+ETR;
+           return Confess(ANS);
    }
    ans = search(value , 'چالش' );
    if(ans){
            var CHL = Game_CHL();
-           var ANS = '______ #Challenge' + '\n' +name+" "+"جونم\n\n"+CHL;
-           return ANS;
+           var ANS = name+" "+"جونم\n\n"+CHL;
+           return Challenge(ANS);
    }
    
    
@@ -79,13 +125,15 @@ function mode_us(name,value,MY_BOT,Last_MS,Last_MS_1){
         // day: "numeric"
         // }).format(date);
 
-        return '______ #DATE' + '\n' + sh + '\n' + '\n'+ typefa + '\n' + '\n'+ '______' + '\n' + ml + '\n'  + '\n'+ typeeg;
-   }
+        var ANS = sh + '\n' + '\n'+ typefa + '\n' + '\n'+ '______' + '\n' + ml + '\n'  + '\n'+ typeeg;
+        
+        return DATE(ANS);
+    }    
 
    if(value == 'امار' ){
         var users = document.getElementById('users');
         var users_length = users.childNodes.length;
-        var ANS = '__ #Statistics'+'\n'+'\n';
+        var ANS = '';
         ANS += 'تعداد پیام هر یک از اعضای فعال گپ ||'+'\n'+'\n';
         var all_ms;
         all_ms = 0;
@@ -93,6 +141,26 @@ function mode_us(name,value,MY_BOT,Last_MS,Last_MS_1){
             var ref = users.childNodes[i].hasChildNodes();
             if(ref){
                 var name_ms = users.childNodes[i].getAttribute('name');
+                var person = document.getElementById('users_person');
+                var person_veri = person.childElementCount;
+                if(person_veri !== '0'){
+                    var persons = person.childNodes;
+                    var count = persons.length;
+                    for(var c=0;c < count;c++){
+                        var name_person = persons[c].getAttribute('name');
+                        if(name_person == name_ms){
+                            var name_us = persons[c].childNodes[0].innerHTML;
+                            var type_us = persons[c].childNodes[1].innerHTML;
+                            if(type_us == 'دخترم'){
+                                name_ms = short_ANS('girl_pass')+' ';
+                            }
+                            if(type_us == 'پسرم'){
+                                name_ms = short_ANS('boy_pass')+' ';
+                            }
+                            name_ms += name_us;
+                        }
+                    }
+                   }
                 var ms_user_length = users.childNodes[i].childNodes.length;
                 all_ms += ms_user_length;
                 ANS += name_ms + '  :  '+ms_user_length+'\n';
@@ -100,7 +168,7 @@ function mode_us(name,value,MY_BOT,Last_MS,Last_MS_1){
         }
         ANS += 'تعداد افراد فعال گپ'+' : '+(users_length-1)+'\n';
         ANS += 'تعداد کل پیام :'+' '+all_ms;
-        return ANS;
+        return Statistics(ANS);
    }      
 
    ans = search(value , 'بگو');
@@ -130,34 +198,34 @@ if(submit ){
                     return ANS;
                 }
             }
-            ans = search(value , 'گوگولی');
-            if(ans){
-                ans = search(value , 'امارش');
-                if(ans){
-                    var users = document.getElementById('users');
-                    var users_length = users.childNodes.length;
-                    var ANS = '__ #Statistics'+'\n'+'\n';
-                    ANS += ' پیام های'+'  '+US_ME+'\n\n';
-                    var all_ms;
-                    all_ms = 0;
-                    for(var i = 0;i < users_length; i++){
-                        var ref = users.childNodes[i].hasChildNodes();
-                        if(ref){
-                            var name_ms = users.childNodes[i].getAttribute('name');
-                            if(name_ms == US_ME){
-                                var ms_user_length = users.childNodes[i].childNodes.length;
-                                all_ms += ms_user_length;
-                                for(var c = 0;c< ms_user_length;c++){
-                                var ms_s = users.childNodes[i].childNodes[c].innerHTML;
-                                    ANS += c +' : '+ms_s+'\n';
-                                }
-                            }
+            // ans = search(value , 'گوگولی');
+            // if(ans){
+            //     ans = search(value , 'امارش');
+            //     if(ans){
+            //         var users = document.getElementById('users');
+            //         var users_length = users.childNodes.length;
+            //         var ANS = '__ #Statistics'+'\n'+'\n'+'AL2P2LA'+'\n';
+            //         ANS += ' پیام های'+'  '+US_ME+'\n\n';
+            //         var all_ms;
+            //         all_ms = 0;
+            //         for(var i = 0;i < users_length; i++){
+            //             var ref = users.childNodes[i].hasChildNodes();
+            //             if(ref){
+            //                 var name_ms = users.childNodes[i].getAttribute('name');
+            //                 if(name_ms == US_ME){
+            //                     var ms_user_length = users.childNodes[i].childNodes.length;
+            //                     all_ms += ms_user_length;
+            //                     for(var c = 0;c< ms_user_length;c++){
+            //                     var ms_s = users.childNodes[i].childNodes[c].innerHTML;
+            //                         ANS += c +' : '+ms_s+'\n';
+            //                     }
+            //                 }
                             
-                        }
-                    }
-                    return ANS;
-                }
-            }   
+            //             }
+            //         }
+            //         return ANS;
+            //     }
+            // }   
             return false;
         }
     }
@@ -183,5 +251,34 @@ if(submit ){
     
 
     var ANS = message(value , name);
+    return ANS;
+}
+
+function unknow_person(name,value,MY_BOT,Last_MS,Last_MS_1){
+    ans = search(value , 'اسمم');
+    if(ans){
+        var ans1 = search(value , 'دخترم');
+        if(ans1){
+            var nikname = value.replace('اسمم','');
+            nikname = nikname.replace('دخترم','');
+            nikname = nikname.trim();
+            document.getElementById('users_person').innerHTML += '<div class="nameBot_user" name="'+name+'"><p>'+nikname+'</p><p>دخترم</p></div>';
+            var ANS =  "پس خانومی اسمت"+" "+nikname+" "+'هست'+'\n'+'ثبت شد.';
+            return ANS;
+        }
+        var ans2 = search(value , 'پسرم');
+        if(ans2){
+            var nikname = value.replace('اسمم','');
+            nikname = nikname.replace('پسرم','');
+            nikname = nikname.trim();
+            document.getElementById('users_person').innerHTML += '<div class="nameBot_user" name="'+name+'"><p>'+nikname+'</p><p>پسرم</p></div>';
+            var ANS =  "پس اقایی اسمت"+" "+nikname+" "+ 'هست'+'\n'+'ثبت شد.';
+            return ANS;
+        }
+    }
+
+    var ANS = short_ANS('unknow')+'\n'+'\n';
+    ANS += 'لطفا اسم و جنسیت خود را مانند مثال های زیر بفرستید'+'\n'+'\n';
+    ANS += 'مثل : اسمم بهار دخترم\nمثل : اسمم مهدی پسرم';
     return ANS;
 }

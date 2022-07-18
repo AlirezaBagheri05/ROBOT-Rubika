@@ -1,7 +1,7 @@
 function GET_W(){
     // document.getElementById('low').click();
     // var MY_BOT = 'GFY :)';
-    var MY_BOT = '~';
+    var MY_BOT = 'GOGOLI';
     var mybox;
     mybox = document.getElementById('ali').childNodes.length;
     var count = document.getElementById('Result').innerHTML =  (mybox-6);
@@ -107,7 +107,13 @@ function GET_W(){
                             return false;
                         }
                        
-                        
+                        // var veri = document.getElementById('num_state').innerHTML;
+                        // if(value == veri){
+                        //     document.getElementById('num_state_lo').innerHTML = 'off';
+                        //     return false;
+                        // }
+
+
                        if(value == 'گوگولی یاد بگیر'){
                          document.getElementById('type').innerHTML = 'imp';
                          var ANS = short_ANS("imp");
