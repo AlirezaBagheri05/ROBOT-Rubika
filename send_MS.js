@@ -88,6 +88,7 @@ function send_2(){
 // var stop2 = setInterval(send_2, 600000);
 // setInterval(send_2_big_m, 500);
 //var stop1 = setTimeout(send_1, 500);
+//var stop = setInterval(send_1, 500);
 
 
 // var myInterval = setInterval(function(){console.log("mmk")}, 2000);
