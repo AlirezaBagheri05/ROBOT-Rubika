@@ -1,7 +1,7 @@
 function GET_W(){
-    // document.getElementById('low').click();
+    document.getElementById('low').click();
     // var MY_BOT = 'GFY :)';
-    var MY_BOT = 'GOGOLI';
+    var MY_BOT = 'گوگولی';
     var mybox;
     mybox = document.getElementById('ali').childNodes.length;
     var count = document.getElementById('Result').innerHTML =  (mybox-6);
