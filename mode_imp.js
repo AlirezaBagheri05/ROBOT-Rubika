@@ -20,7 +20,7 @@ function mode_imp(name,value,MY_BOT,Last_MS,Last_MS_1){
     if(ans){
         var step =  document.getElementById('step').innerHTML;
         if(step !== '0'){
-            var ANS = "شما هنوز ثبت نکرده اید"+" \n\ "+" \n\ "+"با گفتن کلمه . شروع . کد فعلی حذف و ربات به مرحله اول می رود.";
+            var ANS = "شما هنوز ثبت نکرده اید"+" \n\ "+" \n\ "+"با گ کلمه . شروع . کد فعلی حذف و ربات به مرحله اول می رود.";
             return ANS;
         }
         document.getElementById('step').innerHTML = 1;
@@ -37,11 +37,11 @@ function mode_imp(name,value,MY_BOT,Last_MS,Last_MS_1){
          var num = document.getElementById('num').innerHTML;
          num =  Number(num);
          var num = document.getElementById('num').innerHTML = (num + 1);
-         var ANS = "Code " + num + " | " + ' \n\ '+ ' \n\ ' + 'امادس' + ' \n\ '+ ' \n\ ' + 'گفتن...';
+         var ANS = "Code " + num + " | " + ' \n\ '+ ' \n\ ' + 'امادس' + ' \n\ '+ ' \n\ ' + 'گ...';
          return ANS;
     }
     
-    var ans = search(value , 'گفتن');
+    var ans = search(value , 'گ');
     if(ans){
         var step =  document.getElementById('step').innerHTML;
         if(step !== '1'){
@@ -49,14 +49,14 @@ function mode_imp(name,value,MY_BOT,Last_MS,Last_MS_1){
             return ANS;
         }
         var num = document.getElementById('num').innerHTML;
-        var d_user = value.replace('گفتن','');
+        var d_user = value.replace('گ','');
         var d_user = d_user.trim();
         document.getElementById('d_user').innerHTML +="<p>"+d_user+"</p>";
-        var ANS ="Code " + num + " | " + ' \n\ '+ ' \n\ ' + 'میتونی الان ' + ' \n\ '+ ' \n\ ' + 'جدید(گفتن...)'+ ' \n\ '+ ' \n\ ' + 'یا بری مرحله بعد'+ ' \n\ '+ ' \n\ ' + 'بگو...';
+        var ANS ="Code " + num + " | " + ' \n\ '+ ' \n\ ' + 'میتونی الان ' + ' \n\ '+ ' \n\ ' + 'جدید(گ...)'+ ' \n\ '+ ' \n\ ' + 'یا بری مرحله بعد'+ ' \n\ '+ ' \n\ ' + 'ب...';
         return ANS;
     }
     
-    var ans = search(value , 'بگو');
+    var ans = search(value , 'ب');
     if(ans){
         var step =  document.getElementById('step').innerHTML;
         if(step !== '1'){
@@ -64,10 +64,10 @@ function mode_imp(name,value,MY_BOT,Last_MS,Last_MS_1){
             return ANS;
         }
         var num = document.getElementById('num').innerHTML;
-        var c_user = value.replace('بگو','');
+        var c_user = value.replace('ب','');
         var c_user = c_user.trim();
         document.getElementById('c_user').innerHTML +="<p>"+c_user+"</p>";
-        var ANS = "Code " + num + " | " + ' \n\ '+ ' \n\ ' + 'میتونی الان ' + ' \n\ '+ ' \n\ ' + 'جدید(بگو...)'+ ' \n\ '+ ' \n\ ' + 'یا بری مرحله نهایی'+ ' \n\ '+ ' \n\ ' + 'ثبت';
+        var ANS = "Code " + num + " | " + ' \n\ '+ ' \n\ ' + 'میتونی الان ' + ' \n\ '+ ' \n\ ' + 'جدید(ب...)'+ ' \n\ '+ ' \n\ ' + 'یا بری مرحله نهایی'+ ' \n\ '+ ' \n\ ' + 'ثبت';
         return ANS;
     }
     var ans = search(value , 'ثبت');

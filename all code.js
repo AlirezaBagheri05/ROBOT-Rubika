@@ -262,6 +262,8 @@ function send_1(){
     document.getElementById('time_p').innerHTML = now_time;
     document.getElementById('send_1').click();
 }
+
+
 function send_2(){
     document.getElementById('text').innerHTML = "🚶";
     document.getElementById('text_1').innerHTML = "🚶";
@@ -271,64 +273,6 @@ function send_2(){
     document.getElementById('send_1').click();
 }
 
-
-
-//  setInterval(send_1, 500);
-
-// setTimeout(send_1, 500);
-// setTimeout(send_2_big_m, 500);
-
-// var stop = setInterval(send_1, 500);setInterval(send_2_big_m, 500);
-
-// function send_2_big_m(){
-//     var num_s_lo = document.getElementById('num_state_lo').innerHTML;
-//     if(num_s_lo !== 'off'){
-//         return false;
-//     }
-//     document.getElementById('send_1').click();
-//     var last = document.getElementById('time_p').innerHTML;
-//     var now =  new Date();
-//     var now_time = now.getTime();
-//     var ms_time = now_time - last;
-//     if(ms_time < 1000){
-//         return false;
-//     }
-//     var end_f =  document.getElementById('parts').childElementCount;
-//     if(end_f == 0){
-//         document.getElementById('num_state_lo').innerHTML = 'on';
-//         return;
-//     }
-//     var final =  document.getElementById('parts').childNodes[0].innerHTML;
-
-//     document.getElementById('text').innerHTML = final;
-//     document.getElementById('text_1').innerHTML = final;
-//     var now =  new Date();
-//     var now_time = now.getTime();
-//     document.getElementById('time_p').innerHTML = now_time;
-//     document.getElementById('send_1').click();
-//     var ms_p = document.getElementById("parts");
-//     ms_p.removeChild(ms_p.childNodes[0]);
-// }
-// setInterval(send_2_big_m, 200);
-
-// function time_ANS(){
-//     var stop_1;
-//     var tm = document.getElementById('time').innerHTML;
-//     alert(tm);
-//     send_1(time);
-//     document.getElementById('time').innerHTML = time;
-//     return true;
-//     if(tm == time){
-//         return false;
-//     }
-
-//     clearInterval(stop_1);
-//     var stop_1 = setInterval(send_1, time);
-//     document.getElementById('time').innerHTML = time;
-//     return true;
-// }
-
-// reply
 
 function message_reply(value){
     var d1,d2,d3,d4,d5,d6,d7,d8,d9,d10,d11,d12,d13,d14,d15,d16,d17,d18,d19,d20,d21,d22,d23,d24,
@@ -2003,7 +1947,6 @@ function search(value , sh){
 }
 
 
-
 // mode_us
 function mode_us(name,value,MY_BOT,Last_MS,Last_MS_1){
 
@@ -2318,7 +2261,7 @@ function mode_imp(name,value,MY_BOT,Last_MS,Last_MS_1){
     if(ans){
         var step =  document.getElementById('step').innerHTML;
         if(step !== '0'){
-            var ANS = "شما هنوز ثبت نکرده اید"+" \n\ "+" \n\ "+"با گفتن کلمه . شروع . کد فعلی حذف و ربات به مرحله اول می رود.";
+            var ANS = "شما هنوز ثبت نکرده اید"+" \n\ "+" \n\ "+"با گ کلمه . شروع . کد فعلی حذف و ربات به مرحله اول می رود.";
             return ANS;
         }
         document.getElementById('step').innerHTML = 1;
@@ -2335,11 +2278,11 @@ function mode_imp(name,value,MY_BOT,Last_MS,Last_MS_1){
          var num = document.getElementById('num').innerHTML;
          num =  Number(num);
          var num = document.getElementById('num').innerHTML = (num + 1);
-         var ANS = "Code " + num + " | " + ' \n\ '+ ' \n\ ' + 'امادس' + ' \n\ '+ ' \n\ ' + 'گفتن...';
+         var ANS = "Code " + num + " | " + ' \n\ '+ ' \n\ ' + 'امادس' + ' \n\ '+ ' \n\ ' + 'گ...';
          return ANS;
     }
     
-    var ans = search(value , 'گفتن');
+    var ans = search(value , 'گ');
     if(ans){
         var step =  document.getElementById('step').innerHTML;
         if(step !== '1'){
@@ -2347,14 +2290,14 @@ function mode_imp(name,value,MY_BOT,Last_MS,Last_MS_1){
             return ANS;
         }
         var num = document.getElementById('num').innerHTML;
-        var d_user = value.replace('گفتن','');
+        var d_user = value.replace('گ','');
         var d_user = d_user.trim();
         document.getElementById('d_user').innerHTML +="<p>"+d_user+"</p>";
-        var ANS ="Code " + num + " | " + ' \n\ '+ ' \n\ ' + 'میتونی الان ' + ' \n\ '+ ' \n\ ' + 'جدید(گفتن...)'+ ' \n\ '+ ' \n\ ' + 'یا بری مرحله بعد'+ ' \n\ '+ ' \n\ ' + 'بگو...';
+        var ANS ="Code " + num + " | " + ' \n\ '+ ' \n\ ' + 'میتونی الان ' + ' \n\ '+ ' \n\ ' + 'جدید(گ...)'+ ' \n\ '+ ' \n\ ' + 'یا بری مرحله بعد'+ ' \n\ '+ ' \n\ ' + 'ب...';
         return ANS;
     }
     
-    var ans = search(value , 'بگو');
+    var ans = search(value , 'ب');
     if(ans){
         var step =  document.getElementById('step').innerHTML;
         if(step !== '1'){
@@ -2362,10 +2305,10 @@ function mode_imp(name,value,MY_BOT,Last_MS,Last_MS_1){
             return ANS;
         }
         var num = document.getElementById('num').innerHTML;
-        var c_user = value.replace('بگو','');
+        var c_user = value.replace('ب','');
         var c_user = c_user.trim();
         document.getElementById('c_user').innerHTML +="<p>"+c_user+"</p>";
-        var ANS = "Code " + num + " | " + ' \n\ '+ ' \n\ ' + 'میتونی الان ' + ' \n\ '+ ' \n\ ' + 'جدید(بگو...)'+ ' \n\ '+ ' \n\ ' + 'یا بری مرحله نهایی'+ ' \n\ '+ ' \n\ ' + 'ثبت';
+        var ANS = "Code " + num + " | " + ' \n\ '+ ' \n\ ' + 'میتونی الان ' + ' \n\ '+ ' \n\ ' + 'جدید(ب...)'+ ' \n\ '+ ' \n\ ' + 'یا بری مرحله نهایی'+ ' \n\ '+ ' \n\ ' + 'ثبت';
         return ANS;
     }
     var ans = search(value , 'ثبت');
@@ -2475,9 +2418,10 @@ function message(value , name){
 
 
 
+
 // MAIN_FUNC
 function GET_W(){
-    // document.getElementById('low').click();
+    document.getElementById('low').click();
     // var MY_BOT = 'GFY :)';
     var MY_BOT = 'گوگولی';
     var mybox;
@@ -2621,8 +2565,8 @@ function GET_W(){
 
 // help_BOT
 
-function Help_BOT(){
-    var ANS = "راهنما🙂👇 \n\n#چالش \n دستور : فقط کافیه بگی 'چالش'  \n\n_بصورت تصادفی یک سوال ازت می پرسه. \n\n#اعتراف \nدستور : فقط کافیه بگی 'اعتراف'\n\n_بصورت تصادفی یکی از اعترافات هات رو می‌فرسته\n\n#فال \nدستور : فقط کافیه بگی 'فال'\n\n_برات فال حافظ میگیره\n\n";
+function Help_GOGOLI(){
+    var ANS = "راهنما🙂👇 \n\n🎮 سرگرمی\n\n#چالش \n دستور : فقط کافیه بگی 'چالش'  \n\n_بصورت تصادفی یک سوال ازت می پرسه. \n\n#اعتراف \nدستور : فقط کافیه بگی 'اعتراف'\n\n_بصورت تصادفی یکی از اعترافات هات رو می‌فرسته\n\n#فال \nدستور : فقط کافیه بگی 'فال'\n\n_برات فال حافظ میگیره\n\n";
     ANS += "#بگو\nدستور : 'بگو' .... \n\n_هر چی دوست داری ربات میگه.\nبرای مثال : گوگولی بگو دوستت دارم \n\n\n\n⚙ ️کاربردی \n\n#روشن | #خاموش\n\nدستور : فقط کافیه بگی 'گوگولی روشن' | 'گوگولی خاموش'\n\n_ربات خاموش یا روشن می‌شود.\n\n#حالت_ارام \n\nدستور : 'حالت ارام tمیلی ثانیهt'\nبرای مثال : حالت ارام t5000t \nبه این منظور است که حداقل فاصله زمانی بین هر پیام گوگولی ۵ ثانیه معادل ۵۰۰۰ میلی ثانیه باشید.\n\n";
     ANS += "_ با این ابزار می‌توان سرعت ارسال پیام گوگولی را مدیریت کرد.\n\n#حالت_هوشمند\nدستور: 'حالت هوشمند روشن' | 'حالت هوشمند خاموش'\n\n_در این حالت می‌توان بدون ریپ زدن باهاش چت کرد.\n\n#امار \nدستور : فقط کافیه بگی 'امار'\n\n_امار فعالیت اعضای گپ را نمایش می‌دهد.\n\n#تاریخ\nدستور : فقط کافیه بگی 'تاریخ'\n\n_تاریخ حال را بصورت کامل در دوحالت شمسی و میلادی نمایش می‌دهد.";
     return ANS;
@@ -2698,6 +2642,7 @@ c50 ="ANS";
     return bank[num]; 
 }
 
+
 // GAME_ETR 
 
 function Game_ETR(){
@@ -2769,6 +2714,7 @@ c50 ="#اعتراف_کنید \n\n دخترم..\n۶.۷ بار ی جاده رو ر
     var num = Math.floor(Math.random() * 33);
     return bank[num]; 
 }
+
 
 // GAME_CHL
 
@@ -2995,11 +2941,11 @@ function Game_CHL(){
         c151,c152,c153,c154];
     var num = Math.floor(Math.random() * 154);
     return bank[num];
-   }
+}
 
    // formatcht
 
-   function state(value){
+function state(value){
     var header = 'Ⲷ #وضعیت'+'\n\n';
     var main = value+'\n';
     var footer = '─┅━━━━ ⚠ ━━━━┅─';
