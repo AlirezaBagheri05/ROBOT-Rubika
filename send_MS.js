@@ -55,7 +55,7 @@ function send_1(){
         return;
     }
     
-    var final = start();
+    var final = formatchat('start');
     if(final == null){
         return null ;
     }

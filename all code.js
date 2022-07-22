@@ -189,7 +189,6 @@ function short_ANS(cond){
         return ANS;
     }
 }
-
 // send_us
 function send_1(){
     // var num_s_lo = document.getElementById('num_state_lo').innerHTML;
@@ -262,8 +261,6 @@ function send_1(){
     document.getElementById('time_p').innerHTML = now_time;
     document.getElementById('send_1').click();
 }
-
-
 function send_2(){
     document.getElementById('text').innerHTML = "🚶";
     document.getElementById('text_1').innerHTML = "🚶";
@@ -272,8 +269,7 @@ function send_2(){
     document.getElementById('time_p').innerHTML = now_time;
     document.getElementById('send_1').click();
 }
-
-
+// mode_us
 function message_reply(value){
     var d1,d2,d3,d4,d5,d6,d7,d8,d9,d10,d11,d12,d13,d14,d15,d16,d17,d18,d19,d20,d21,d22,d23,d24,
 d25,d26,d27,d28,d29,d30,d31,d32,d33,d34,d35,d36,d37,d38,d39,d40;
@@ -1934,7 +1930,6 @@ c25,c26,c27,c28,c29,c30,c31,c32,c33,c34,c35,c36,c37,c38,c39,c40;
         var ANS = bank[num];
         return ANS;
 }
-
 function search(value , sh){
     if(value == null){
         return false;
@@ -1945,300 +1940,7 @@ function search(value , sh){
     }
     return false;
 }
-
-
-// mode_us
-function mode_us(name,value,MY_BOT,Last_MS,Last_MS_1){
-
-    var person = document.getElementById('users_person');
-    var person_veri = person.childElementCount;
-    if(person_veri !== '0'){
-        var persons = person.childNodes;
-        var count = persons.length;
-        for(var i=0;i < count;i++){
-            var name_person = persons[i].getAttribute('name');
-            if(name_person == name){
-                var name_us = persons[i].childNodes[0].innerHTML;
-                var type_us = persons[i].childNodes[1].innerHTML;
-                var name_base = name;
-                return know_preson(name_us,value,MY_BOT,Last_MS,Last_MS_1,type_us,name_base);
-            }
-        }
-        return unknow_person(name,value,MY_BOT,Last_MS,Last_MS_1);
-    }
-    return unknow_person(name,value,MY_BOT,Last_MS,Last_MS_1);
-}
-
-function know_preson(name,value,MY_BOT,Last_MS,Last_MS_1,type_us,name_base){
-    if(value == 'منو از حافظت پاک کن'){
-
-         var person = document.getElementById('users_person');
-        var person_veri = person.childElementCount;
-        if(person_veri !== '0'){
-            var persons = person.childNodes;
-            var count = persons.length;
-            for(var i=0;i < count;i++){
-                var name_person = persons[i].getAttribute('name');
-                if(name_person == name_base){
-                    person.removeChild(person.childNodes[i]);
-                    return 'اطلاعات شما پاک شد.';
-                }
-            }
-           
-        }
-        
-    }
-    if(value == 'حالت هوشمند خاموش'){
-        document.getElementById('mood').innerHTML = 'off';
-         var ANS = short_ANS("off_mood");
-         return state(ANS);
-    }
-    if(value == 'حالت هوشمند روشن'){
-        var OFFON =document.getElementById('mood').innerHTML = 'on';
-         var ANS = short_ANS("on_mood");
-         return state(ANS);
-    }
-   var ans = search(value , 'حالت ارام');
-   if(ans){
-        var t = 't';
-        var pos_1 = value.indexOf(t);
-        var pos_2 = value.lastIndexOf(t);
-        var time_n = value.substring((pos_1+1),pos_2);
-        document.getElementById('time').innerHTML = time_n;
-        var ANS = short_ANS("time");
-         return state(ANS);
-   }
-    var ans = search(value , 'ربات');
-    var ans_1 = search(value , 'بات');
-    var ans_2 = search(value , 'گاگولی');
-   if(ans || ans_1 || ans_2){
-        var ANS =  short_ANS(type_us)+'\n';
-        ANS +=  message_reply(value);
-        return ANS;
-   }
-   var ans = search(value , 'راهنما');
-   if(ans){
-           var ANS = Help_GOGOLI();
-           return '______ #Help' + '\n'+ANS;
-   }
-   
-   ans = search(value , 'فال' );
-   if(ans){
-           var FAl = Game_FAl();
-           var ANS = name +" "+ 'جونم' + ' '+"اینم فالی که برات گرفتم"+" \n\n "+FAl;
-            return Omen(ANS);
-   }   
-   ans = search(value , 'اعتراف' );
-   if(ans){
-           var ETR = Game_ETR();
-           var ANS = name +" "+ 'جونم' + ' '+"اینم ی اعتراف از ی بنده خدا"+" \n\n "+ETR;
-           return Confess(ANS);
-   }
-   ans = search(value , 'چالش' );
-   if(ans){
-           var CHL = Game_CHL();
-           var ANS = name+" "+"جونم\n\n"+CHL;
-           return Challenge(ANS);
-   }
-   
-   
-   ans = search(value , 'تاریخ');
-   if(ans){
-        const egDateTime = new Intl.DateTimeFormat("eg", {
-            weekday: "long",
-            year: "numeric",
-            month: "2-digit",
-            day: "2-digit",
-            hour: "2-digit",
-            minute: "2-digit",
-            timeZoneName: "short"
-          }).format;
-          const now = Date.now();
-        var typeeg = egDateTime(now);
-        const faDateTime = new Intl.DateTimeFormat("fa", {
-            weekday: "long",
-            year: "numeric",
-            month: "2-digit",
-            day: "2-digit",
-            hour: "2-digit",
-            minute: "2-digit",
-            timeZoneName: "short"
-          }).format;
-          const now1 = Date.now();
-        var typefa = faDateTime(now1);
-        var sh = 'تاریخ شمسی 🌝';
-        var ml = 'Gregorian date 🌚';
-        // const faDate = new Intl.DateTimeFormat("fa", {
-        // weekday: "long",
-        // year: "numeric",
-        // month: "long",
-        // day: "numeric"
-        // }).format(date);
-
-        var ANS = sh + '\n' + '\n'+ typefa + '\n' + '\n'+ '______' + '\n' + ml + '\n'  + '\n'+ typeeg;
-        
-        return DATE(ANS);
-    }    
-
-   if(value == 'امار' ){
-        var users = document.getElementById('users');
-        var users_length = users.childNodes.length;
-        var ANS = '';
-        ANS += 'تعداد پیام هر یک از اعضای فعال گپ ||'+'\n'+'\n';
-        var all_ms;
-        all_ms = 0;
-        for(var i = 0;i < users_length; i++){
-            var ref = users.childNodes[i].hasChildNodes();
-            if(ref){
-                var name_ms = users.childNodes[i].getAttribute('name');
-                var person = document.getElementById('users_person');
-                var person_veri = person.childElementCount;
-                if(person_veri !== '0'){
-                    var persons = person.childNodes;
-                    var count = persons.length;
-                    for(var c=0;c < count;c++){
-                        var name_person = persons[c].getAttribute('name');
-                        if(name_person == name_ms){
-                            var name_us = persons[c].childNodes[0].innerHTML;
-                            var type_us = persons[c].childNodes[1].innerHTML;
-                            if(type_us == 'دخترم'){
-                                name_ms = short_ANS('girl_pass')+' ';
-                            }
-                            if(type_us == 'پسرم'){
-                                name_ms = short_ANS('boy_pass')+' ';
-                            }
-                            name_ms += name_us;
-                        }
-                    }
-                   }
-                var ms_user_length = users.childNodes[i].childNodes.length;
-                all_ms += ms_user_length;
-                ANS += name_ms + '  :  '+ms_user_length+'\n';
-            }
-        }
-        ANS += '\n'+'⊶'+'تعداد افراد فعال گپ'+' : '+(users_length-1)+'\n';
-        ANS += '⊷'+'تعداد کل پیام :'+' '+all_ms;
-        return Statistics(ANS);
-   }      
-
-   ans = search(value , 'بگو');
-   if(ans){
-        var ANS = value.replace('بگو','');
-        ans = search(ANS, 'گوگولی');
-        if(ans){
-            ANS = ANS.replace('گوگولی','');
-            return ANS;
-        }
-        return ANS;
-   }   
-   
-var Reply = Last_MS.getElementsByClassName('reply-content')[0];
-var submit = Last_MS.contains(Reply);
-if(submit ){
-        var US_ME =Last_MS.getElementsByClassName('peer-title')[1].innerHTML;
-        if(US_ME == MY_BOT){
-            var ANS =  message_reply(value);
-            return ANS;
-        }else{
-            ans = search(value , 'گوگولی');
-            if(ans){
-                ans = search(value , 'اسم');
-                if(ans){
-                    var ANS = Last_MS.getElementsByClassName('peer-title')[1].innerHTML;
-                    return ANS;
-                }
-            }
-            // ans = search(value , 'گوگولی');
-            // if(ans){
-            //     ans = search(value , 'امارش');
-            //     if(ans){
-            //         var users = document.getElementById('users');
-            //         var users_length = users.childNodes.length;
-            //         var ANS = '__ #Statistics'+'\n'+'\n'+'AL2P2LA'+'\n';
-            //         ANS += ' پیام های'+'  '+US_ME+'\n\n';
-            //         var all_ms;
-            //         all_ms = 0;
-            //         for(var i = 0;i < users_length; i++){
-            //             var ref = users.childNodes[i].hasChildNodes();
-            //             if(ref){
-            //                 var name_ms = users.childNodes[i].getAttribute('name');
-            //                 if(name_ms == US_ME){
-            //                     var ms_user_length = users.childNodes[i].childNodes.length;
-            //                     all_ms += ms_user_length;
-            //                     for(var c = 0;c< ms_user_length;c++){
-            //                     var ms_s = users.childNodes[i].childNodes[c].innerHTML;
-            //                         ANS += c +' : '+ms_s+'\n';
-            //                     }
-            //                 }
-                            
-            //             }
-            //         }
-            //         return ANS;
-            //     }
-            // }   
-            return false;
-        }
-    }
-    
-    var mood = document.getElementById('mood').innerHTML;
-    if(mood == 'on'){
-        var MS_1 = Last_MS_1.getElementsByClassName('message')[0];
-            var MS_us_1 = Last_MS_1.contains(MS_1);
-            if(MS_us_1){
-            var ls_n = Last_MS_1.getElementsByClassName('peer-title')[0].innerHTML;
-            if(ls_n == MY_BOT){
-                var ANS =  message_reply(value);
-                return ANS;
-            }
-        }
-    }
-
-    ans = search(value , 'گوگولی');
-    if(ans){
-        var ANS =  message_reply(value);
-        return ANS;
-    }
-    
-
-    var ANS = message(value , name);
-    return ANS;
-}
-
-function unknow_person(name,value,MY_BOT,Last_MS,Last_MS_1){
-    if(name == ''){
-        return false;
-    }
-    ans = search(value , 'اسمم');
-    if(ans){
-        var ans1 = search(value , 'دخترم');
-        if(ans1){
-            var nikname = value.replace('اسمم','');
-            nikname = nikname.replace('دخترم','');
-            nikname = nikname.trim();
-            document.getElementById('users_person').innerHTML += '<div class="nameBot_user" name="'+name+'"><p>'+nikname+'</p><p>دخترم</p></div>';
-            var ANS =  "پس خانومی اسمت"+" "+nikname+" "+'هست'+'\n'+'ثبت شد.';
-            return ANS;
-        }
-        var ans2 = search(value , 'پسرم');
-        if(ans2){
-            var nikname = value.replace('اسمم','');
-            nikname = nikname.replace('پسرم','');
-            nikname = nikname.trim();
-            document.getElementById('users_person').innerHTML += '<div class="nameBot_user" name="'+name+'"><p>'+nikname+'</p><p>پسرم</p></div>';
-            var ANS =  "پس اقایی اسمت"+" "+nikname+" "+ 'هست'+'\n'+'ثبت شد.';
-            return ANS;
-        }
-    }
-
-    var ANS = short_ANS('unknow')+'\n\n';
-    ANS += 'اسمم بهار دخترم ⓵\nاسمم مهدی پسرم ⓶';
-    return validate(ANS);
-}
-
-
 // mode_imp
-
-
 function mode_imp(name,value,MY_BOT,Last_MS,Last_MS_1){
     var ans = search(value , 'شروع');
     if(ans){
@@ -2261,7 +1963,7 @@ function mode_imp(name,value,MY_BOT,Last_MS,Last_MS_1){
     if(ans){
         var step =  document.getElementById('step').innerHTML;
         if(step !== '0'){
-            var ANS = "شما هنوز ثبت نکرده اید"+" \n\ "+" \n\ "+"با گ کلمه . شروع . کد فعلی حذف و ربات به مرحله اول می رود.";
+            var ANS = "شما هنوز ثبت نکرده اید"+" \n\ "+" \n\ "+"با گفتن کلمه . شروع . کد فعلی حذف و ربات به مرحله اول می رود.";
             return ANS;
         }
         document.getElementById('step').innerHTML = 1;
@@ -2278,11 +1980,11 @@ function mode_imp(name,value,MY_BOT,Last_MS,Last_MS_1){
          var num = document.getElementById('num').innerHTML;
          num =  Number(num);
          var num = document.getElementById('num').innerHTML = (num + 1);
-         var ANS = "Code " + num + " | " + ' \n\ '+ ' \n\ ' + 'امادس' + ' \n\ '+ ' \n\ ' + 'گ...';
+         var ANS = "Code " + num + " | " + ' \n\ '+ ' \n\ ' + 'امادس' + ' \n\ '+ ' \n\ ' + 'گفتن...';
          return ANS;
     }
     
-    var ans = search(value , 'گ');
+    var ans = search(value , 'گفتن');
     if(ans){
         var step =  document.getElementById('step').innerHTML;
         if(step !== '1'){
@@ -2290,14 +1992,14 @@ function mode_imp(name,value,MY_BOT,Last_MS,Last_MS_1){
             return ANS;
         }
         var num = document.getElementById('num').innerHTML;
-        var d_user = value.replace('گ','');
+        var d_user = value.replace('گفتن','');
         var d_user = d_user.trim();
         document.getElementById('d_user').innerHTML +="<p>"+d_user+"</p>";
-        var ANS ="Code " + num + " | " + ' \n\ '+ ' \n\ ' + 'میتونی الان ' + ' \n\ '+ ' \n\ ' + 'جدید(گ...)'+ ' \n\ '+ ' \n\ ' + 'یا بری مرحله بعد'+ ' \n\ '+ ' \n\ ' + 'ب...';
+        var ANS ="Code " + num + " | " + ' \n\ '+ ' \n\ ' + 'میتونی الان ' + ' \n\ '+ ' \n\ ' + 'جدید(گفتن...)'+ ' \n\ '+ ' \n\ ' + 'یا بری مرحله بعد'+ ' \n\ '+ ' \n\ ' + 'بگو...';
         return ANS;
     }
     
-    var ans = search(value , 'ب');
+    var ans = search(value , 'بگو');
     if(ans){
         var step =  document.getElementById('step').innerHTML;
         if(step !== '1'){
@@ -2305,10 +2007,10 @@ function mode_imp(name,value,MY_BOT,Last_MS,Last_MS_1){
             return ANS;
         }
         var num = document.getElementById('num').innerHTML;
-        var c_user = value.replace('ب','');
+        var c_user = value.replace('بگو','');
         var c_user = c_user.trim();
         document.getElementById('c_user').innerHTML +="<p>"+c_user+"</p>";
-        var ANS = "Code " + num + " | " + ' \n\ '+ ' \n\ ' + 'میتونی الان ' + ' \n\ '+ ' \n\ ' + 'جدید(ب...)'+ ' \n\ '+ ' \n\ ' + 'یا بری مرحله نهایی'+ ' \n\ '+ ' \n\ ' + 'ثبت';
+        var ANS = "Code " + num + " | " + ' \n\ '+ ' \n\ ' + 'میتونی الان ' + ' \n\ '+ ' \n\ ' + 'جدید(بگو...)'+ ' \n\ '+ ' \n\ ' + 'یا بری مرحله نهایی'+ ' \n\ '+ ' \n\ ' + 'ثبت';
         return ANS;
     }
     var ans = search(value , 'ثبت');
@@ -2384,9 +2086,7 @@ function mode_imp(name,value,MY_BOT,Last_MS,Last_MS_1){
     // }
 
 }
-
 // message
-
 function message(value , name){
     if(value == 'hello' || value == 'سلام' || value == 'صلام' || value == 'سلوم' ||  value == 'سلاام' ||  value == 'صلوم' ||  value == 'صلام' || value == 'صل' ||  value == 'hi' ||  value == 'های'||  value == 'شلام'||  value == 'سل'||  value == 'سلاام' )
     {
@@ -2415,10 +2115,6 @@ function message(value , name){
 
         return null ;
 }
-
-
-
-
 // MAIN_FUNC
 function GET_W(){
     document.getElementById('low').click();
@@ -2483,6 +2179,7 @@ function GET_W(){
                 }
                 var name = Last_MS.getElementsByClassName('peer-title')[0].innerHTML;
                 var value = Last_MS.getElementsByClassName('message')[0].childNodes[0].innerHTML;
+                var value_1 = Last_MS_1.getElementsByClassName('message')[0].childNodes[0].innerHTML;
                 var users = document.getElementById('users');
                 var users_length = users.childNodes.length;
                 // alert(users_length);
@@ -2511,6 +2208,14 @@ function GET_W(){
                 if(mk){
                     users.innerHTML += '<div name="'+name+'">'+'<p>'+value+'</p>'+'</div>';
                 }
+
+
+                if(value_1 == 'گوگولی ریست شو'){
+                    Last_MS.innerHTML = "";
+                    Last_MS_1.innerHTML = "";
+                    return "پاک شد گلم";
+                }
+
 
                 if(name !== MY_BOT){
 
@@ -2562,18 +2267,14 @@ function GET_W(){
     }
    return false;
 }
-
 // help_BOT
-
 function Help_GOGOLI(){
     var ANS = "راهنما🙂👇 \n\n🎮 سرگرمی\n\n#چالش \n دستور : فقط کافیه بگی 'چالش'  \n\n_بصورت تصادفی یک سوال ازت می پرسه. \n\n#اعتراف \nدستور : فقط کافیه بگی 'اعتراف'\n\n_بصورت تصادفی یکی از اعترافات هات رو می‌فرسته\n\n#فال \nدستور : فقط کافیه بگی 'فال'\n\n_برات فال حافظ میگیره\n\n";
     ANS += "#بگو\nدستور : 'بگو' .... \n\n_هر چی دوست داری ربات میگه.\nبرای مثال : گوگولی بگو دوستت دارم \n\n\n\n⚙ ️کاربردی \n\n#روشن | #خاموش\n\nدستور : فقط کافیه بگی 'گوگولی روشن' | 'گوگولی خاموش'\n\n_ربات خاموش یا روشن می‌شود.\n\n#حالت_ارام \n\nدستور : 'حالت ارام tمیلی ثانیهt'\nبرای مثال : حالت ارام t5000t \nبه این منظور است که حداقل فاصله زمانی بین هر پیام گوگولی ۵ ثانیه معادل ۵۰۰۰ میلی ثانیه باشید.\n\n";
     ANS += "_ با این ابزار می‌توان سرعت ارسال پیام گوگولی را مدیریت کرد.\n\n#حالت_هوشمند\nدستور: 'حالت هوشمند روشن' | 'حالت هوشمند خاموش'\n\n_در این حالت می‌توان بدون ریپ زدن باهاش چت کرد.\n\n#امار \nدستور : فقط کافیه بگی 'امار'\n\n_امار فعالیت اعضای گپ را نمایش می‌دهد.\n\n#تاریخ\nدستور : فقط کافیه بگی 'تاریخ'\n\n_تاریخ حال را بصورت کامل در دوحالت شمسی و میلادی نمایش می‌دهد.";
     return ANS;
 }
-
 // GAME_FAL
-
 function Game_FAl(){
     var c1,c2,c3,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13,c14,c15,c16,c17,c18,c19,c20,c21,c22,c23,c24,
 c25,c26,c27,c28,c29,c30,c31,c32,c33,c34,c35,c36,c37,c38,c39,c40,c41,c42,c43,c44,c45,c46,c47,
@@ -2641,10 +2342,7 @@ c50 ="ANS";
     var num = Math.floor(Math.random() * 15);
     return bank[num]; 
 }
-
-
 // GAME_ETR 
-
 function Game_ETR(){
     var c1,c2,c3,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13,c14,c15,c16,c17,c18,c19,c20,c21,c22,c23,c24,
 c25,c26,c27,c28,c29,c30,c31,c32,c33,c34,c35,c36,c37,c38,c39,c40,c41,c42,c43,c44,c45,c46,c47,
@@ -2714,10 +2412,7 @@ c50 ="#اعتراف_کنید \n\n دخترم..\n۶.۷ بار ی جاده رو ر
     var num = Math.floor(Math.random() * 33);
     return bank[num]; 
 }
-
-
 // GAME_CHL
-
 function Game_CHL(){
     var c1,c2,c3,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13,c14,c15,c16,c17,c18,c19,c20,c21,c22,c23,c24,
     c25,c26,c27,c28,c29,c30,c31,c32,c33,c34,c35,c36,c37,c38,c39,c40,c41,c42,c43,c44,c45,c46,c47,
@@ -2941,59 +2636,65 @@ function Game_CHL(){
         c151,c152,c153,c154];
     var num = Math.floor(Math.random() * 154);
     return bank[num];
+   }
+// formatcht
+formatchat('state',value);
+formatchat('Omen',value);
+formatchat('Confess',value);
+formatchat('Challenge',value);
+formatchat('DATE',value);
+formatchat('Statistics',value);
+formatchat('validate',value);
+formatchat('start');
+function formatchat(type,value){
+    if(type == 'state'){
+        var header = 'Ⲷ #وضعیت'+'\n\n';
+        var main = value+'\n';
+        var footer = '─┅━━━━ ⚠ ━━━━┅─';
+        return (header+main+footer);
+    }
+    if(type == 'Omen'){
+        var header = 'Ⲷ #فال'+'\n\n';
+        var main = value+'\n';
+        var footer = '─┅━━━━ ⚛ ━━━━┅─';
+        return (header+main+footer);
+    }
+    if(type == 'Confess'){
+        var header = 'Ⲷ #اعتراف'+'\n\n';
+        var main = value+'\n';
+        var footer = '─┅━━━━ ⛔ ━━━━┅─';
+        return (header+main+footer);
+    }
+    if(type == 'Challenge'){
+        var header = 'Ⲷ #چالش'+'\n\n';
+        var main = value+'\n';
+        var footer = '─┅━━━━ ☢ ━━━━┅─';
+        return (header+main+footer);
+    }
+    if(type == 'DATE'){
+        var header = 'Ⲷ #تاریخ'+'\n\n';
+        var main = value+'\n';
+        var footer = '─┅━━━━ ⏰ ━━━━┅─';
+        return (header+main+footer);
+    }
+    if(type == 'Statistics'){
+        var header = 'Ⲷ #آمار'+'\n\n';
+        var main = value+'\n';
+        var footer = '─┅━━━━ ␟ ━━━━┅─';
+        return (header+main+footer);
+    }
+    if(type == 'validate'){
+        var header = 'Ⲷ #احراز_هویت'+'\n\n';
+        var main = value+'\n';
+        var footer = '─┅━━━━ೊ ━━━━┅─';
+        return (header+main+footer);
+    }
+    if(type == 'start'){
+        var header = 'ربات با موفقیت بر  روی گپ نصب شد'+'\n';
+        var main = "گوگولی هستم ֍_֍"+'\n\n';
+        main += "راهنما"+'\n';
+        var footer = '─┅━━━━ ␀ ━━━━┅─';
+        return (header+main+footer);
+    }
 }
-
-   // formatcht
-
-function state(value){
-    var header = 'Ⲷ #وضعیت'+'\n\n';
-    var main = value+'\n';
-    var footer = '─┅━━━━ ⚠ ━━━━┅─';
-    return (header+main+footer);
-}
-function Omen(value){
-    var header = 'Ⲷ #فال'+'\n\n';
-    var main = value+'\n';
-    var footer = '─┅━━━━ ⚛ ━━━━┅─';
-    return (header+main+footer);
-}
-function Confess(value){
-    var header = 'Ⲷ #اعتراف'+'\n\n';
-    var main = value+'\n';
-    var footer = '─┅━━━━ ⛔ ━━━━┅─';
-    return (header+main+footer);
-}
-function Challenge(value){
-    var header = 'Ⲷ #چالش'+'\n\n';
-    var main = value+'\n';
-    var footer = '─┅━━━━ ☢ ━━━━┅─';
-    return (header+main+footer);
-}
-function DATE(value){
-    var header = 'Ⲷ #تاریخ'+'\n\n';
-    var main = value+'\n';
-    var footer = '─┅━━━━ ⏰ ━━━━┅─';
-    return (header+main+footer);
-}
-function Statistics(value){
-    var header = 'Ⲷ #آمار'+'\n\n';
-    var main = value+'\n';
-    var footer = '─┅━━━━ ␟ ━━━━┅─';
-    return (header+main+footer);
-}
-function validate(value){
-    var header = 'Ⲷ #احراز_هویت'+'\n\n';
-    var main = value+'\n';
-    var footer = '─┅━━━━ೊ ━━━━┅─';
-    return (header+main+footer);
-}
-function start(){
-    var header = 'ربات با موفقیت بر  روی گپ نصب شد'+'\n';
-    var main = "گوگولی هستم ֍_֍"+'\n\n';
-    main += "راهنما"+'\n';
-    var footer = '─┅━━━━ ␀ ━━━━┅─';
-    return (header+main+footer);
-}
-
-
 

@@ -33,7 +33,7 @@ function know_preson(name,value,MY_BOT,Last_MS,Last_MS_1,type_us,name_base){
                     person.removeChild(person.childNodes[i]);
                     var ANS = short_ANS('unknow')+'\n\n';
                     ANS += 'اسمم بهار دخترم ⓵\nاسمم مهدی پسرم ⓶';
-                    return validate(ANS);
+                    formatchat('validate',value);
                 }
             }
            
@@ -43,12 +43,12 @@ function know_preson(name,value,MY_BOT,Last_MS,Last_MS_1,type_us,name_base){
     if(value == 'حالت هوشمند خاموش'){
         document.getElementById('mood').innerHTML = 'off';
          var ANS = short_ANS("off_mood");
-         return state(ANS);
+         formatchat('state',value);
     }
     if(value == 'حالت هوشمند روشن'){
         var OFFON =document.getElementById('mood').innerHTML = 'on';
          var ANS = short_ANS("on_mood");
-         return state(ANS);
+         formatchat('state',value);
     }
    var ans = search(value , 'حالت ارام');
    if(ans){
@@ -58,7 +58,7 @@ function know_preson(name,value,MY_BOT,Last_MS,Last_MS_1,type_us,name_base){
         var time_n = value.substring((pos_1+1),pos_2);
         document.getElementById('time').innerHTML = time_n;
         var ANS = short_ANS("time");
-         return state(ANS);
+        formatchat('state',value);
    }
     var ans = search(value , 'ربات');
     var ans_1 = search(value , 'بات');
@@ -78,19 +78,19 @@ function know_preson(name,value,MY_BOT,Last_MS,Last_MS_1,type_us,name_base){
    if(ans){
            var FAl = Game_FAl();
            var ANS = name +" "+ 'جونم' + ' '+"اینم فالی که برات گرفتم"+" \n\n "+FAl;
-            return Omen(ANS);
+           formatchat('Omen',value);
    }   
    ans = search(value , 'اعتراف' );
    if(ans){
            var ETR = Game_ETR();
            var ANS = name +" "+ 'جونم' + ' '+"اینم ی اعتراف از ی بنده خدا"+" \n\n "+ETR;
-           return Confess(ANS);
+           formatchat('Confess',value);
    }
    ans = search(value , 'چالش' );
    if(ans){
            var CHL = Game_CHL();
            var ANS = name+" "+"جونم\n\n"+CHL;
-           return Challenge(ANS);
+           formatchat('Challenge',value);
    }
    
    
@@ -129,7 +129,7 @@ function know_preson(name,value,MY_BOT,Last_MS,Last_MS_1,type_us,name_base){
 
         var ANS = sh + '\n' + '\n'+ typefa + '\n' + '\n'+ '______' + '\n' + ml + '\n'  + '\n'+ typeeg;
         
-        return DATE(ANS);
+        formatchat('DATE',value);
     }    
 
    if(value == 'امار' ){
@@ -170,7 +170,7 @@ function know_preson(name,value,MY_BOT,Last_MS,Last_MS_1,type_us,name_base){
         }
         ANS += '\n'+'⊶'+'تعداد افراد فعال گپ'+' : '+(users_length-1)+'\n';
         ANS += '⊷'+'تعداد کل پیام :'+' '+all_ms;
-        return Statistics(ANS);
+        formatchat('Statistics',value);
    }      
 
    ans = search(value , 'بگو');
