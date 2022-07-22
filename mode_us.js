@@ -31,7 +31,9 @@ function know_preson(name,value,MY_BOT,Last_MS,Last_MS_1,type_us,name_base){
                 var name_person = persons[i].getAttribute('name');
                 if(name_person == name_base){
                     person.removeChild(person.childNodes[i]);
-                    return 'اطلاعات شما پاک شد.';
+                    var ANS = short_ANS('unknow')+'\n\n';
+                    ANS += 'اسمم بهار دخترم ⓵\nاسمم مهدی پسرم ⓶';
+                    return validate(ANS);
                 }
             }
            
@@ -279,8 +281,7 @@ function unknow_person(name,value,MY_BOT,Last_MS,Last_MS_1){
             return ANS;
         }
     }
-
-    var ANS = short_ANS('unknow')+'\n\n';
-    ANS += 'اسمم بهار دخترم ⓵\nاسمم مهدی پسرم ⓶';
-    return validate(ANS);
+    
+   document.getElementById('users_person').innerHTML += '<div class="nameBot_user" name="'+name+'"><p>'+name+'</p><p></p></div>';
+     
 }
