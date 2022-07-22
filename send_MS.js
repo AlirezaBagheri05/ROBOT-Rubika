@@ -85,7 +85,7 @@ function send_2(){
 // setTimeout(send_1, 500);
 // setTimeout(send_2_big_m, 500);
 
-// var stop2 = setInterval(send_2, 600000);
+// var stop2 = setInterval(send_2, 300000);
 // setInterval(send_2_big_m, 500);
 //var stop1 = setTimeout(send_1, 500);
 //var stop = setInterval(send_1, 500);
@@ -93,7 +93,7 @@ function send_2(){
 
 // var myInterval = setInterval(function(){console.log("mmk")}, 2000);
 
-// clearInterval(send_1); //stop that interval
+// clearInterval(stop1); //stop that interval
 
 
 

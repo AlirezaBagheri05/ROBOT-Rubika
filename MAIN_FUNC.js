@@ -61,6 +61,7 @@ function GET_W(){
                 }
                 var name = Last_MS.getElementsByClassName('peer-title')[0].innerHTML;
                 var value = Last_MS.getElementsByClassName('message')[0].childNodes[0].innerHTML;
+                var value_1 = Last_MS_1.getElementsByClassName('message')[0].childNodes[0].innerHTML;
                 var users = document.getElementById('users');
                 var users_length = users.childNodes.length;
                 // alert(users_length);
@@ -89,6 +90,14 @@ function GET_W(){
                 if(mk){
                     users.innerHTML += '<div name="'+name+'">'+'<p>'+value+'</p>'+'</div>';
                 }
+
+
+                if(value_1 == 'گوگولی ریست شو'){
+                    Last_MS.innerHTML = "";
+                    Last_MS_1.innerHTML = "";
+                    return "پاک شد گلم";
+                }
+
 
                 if(name !== MY_BOT){
 
