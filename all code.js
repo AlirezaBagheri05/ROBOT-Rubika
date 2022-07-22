@@ -1,12 +1,15 @@
 // short_ANS
 function short_ANS(cond){
+    if(!cond){
+        return "";
+    }
     if(cond == 'welcome'){
         var c1,c2,c3,c4,c5;
-         c1 ="خوش اومدی";
-         c2 ="خش";
-         c3 ="خش پیوست";
-         c4 ="ع این اومد";
-         c5 ="به گپمون خش اومدی";
+        c1 ="خوش اومدی";
+        c2 ="خش";
+        c3 ="خش پیوست";
+        c4 ="ع این اومد";
+        c5 ="به گپمون خش اومدی";
 
         var bank = [c1,c2,c3,c4,c5];
         var num = Math.floor(Math.random() * 5);
@@ -15,11 +18,11 @@ function short_ANS(cond){
     }
     if(cond == 'left'){
         var c1,c2,c3,c4,c5;
-         c1 ="اخیش این رفت راحت شدیم";
-         c2 ="به سلامت";
-         c3 ="برو دیگه بر نگردی";
-         c4 ="بای بای";
-         c5 ="یکی کمتر بهتر";
+        c1 ="اخیش این رفت راحت شدیم";
+        c2 ="به سلامت";
+        c3 ="برو دیگه بر نگردی";
+        c4 ="بای بای";
+        c5 ="یکی کمتر بهتر";
 
         var bank = [c1,c2,c3,c4,c5];
         var num = Math.floor(Math.random() * 5);
@@ -28,14 +31,14 @@ function short_ANS(cond){
     }
     if(cond == 'on'){
         var c1,c2,c3,c4,c5,c6,c7,c8;
-         c1 ="من اوووومدم 🤣";
-         c2 ="خفه شدم😕";
-         c3 ="هایااح";
-         c4 ="اخیش .. خب سلام چخبر";
-         c5 ="ع باز شدم😂😐";
-         c6 ="اوا روشنم کردن😂💔😐";
-         c7 ="مرسی عزیزم😘";
-         c8 ="ع باز شدم😂😐";
+        c1 ="من اوووومدم 🤣";
+        c2 ="خفه شدم😕";
+        c3 ="هایااح";
+        c4 ="اخیش .. خب سلام چخبر";
+        c5 ="ع باز شدم😂😐";
+        c6 ="اوا روشنم کردن😂💔😐";
+        c7 ="مرسی عزیزم😘";
+        c8 ="ع باز شدم😂😐";
 
         var bank = [c1,c2,c3,c4,c5,c6,c7,c8];
         var num = Math.floor(Math.random() * 8);
@@ -44,14 +47,14 @@ function short_ANS(cond){
     }
     if(cond == 'off'){
         var c1,c2,c3,c4,c5,c6,c7,c8;
-         c1 ="باشع😔";
-         c2 ="اوکی:(";
-         c3 ="بهتر";
-         c4 ="خاموش شدم:/";
-         c5 ="نعععع😭";
-         c6 ="عع😭";
-         c7 ="نمیخواااام😭";
-         c8 ="عععع😭";
+        c1 ="باشع😔";
+        c2 ="اوکی:(";
+        c3 ="بهتر";
+        c4 ="خاموش شدم:/";
+        c5 ="نعععع😭";
+        c6 ="عع😭";
+        c7 ="نمیخواااام😭";
+        c8 ="عععع😭";
 
         var bank = [c1,c2,c3,c4,c5,c6,c7,c8];
         var num = Math.floor(Math.random() * 5);
@@ -60,7 +63,7 @@ function short_ANS(cond){
     }
     if(cond == 'time'){
         var c1;
-         c1 ="حالت ارام تایید شد.";
+        c1 ="حالت ارام تایید شد.";
 
         var bank = [c1];
         var num = Math.floor(Math.random() * 1);
@@ -83,7 +86,7 @@ function short_ANS(cond){
     }
     if(cond == 'off_mood'){
         var c1;
-         c1 ="حالت هوشمند خاموش";
+        c1 ="حالت هوشمند خاموش";
         var bank = [c1];
         var num = Math.floor(Math.random() * 1);
         var ANS = bank[num] + name;
@@ -91,7 +94,7 @@ function short_ANS(cond){
     }
     if(cond == 'on_mood'){
         var c1;
-         c1 ="حالت هوشمند روشن";
+        c1 ="حالت هوشمند روشن";
         var bank = [c1];
         var num = Math.floor(Math.random() * 1);
         var ANS = bank[num] + name;
@@ -99,7 +102,7 @@ function short_ANS(cond){
     }
     if(cond == 'us'){
         var c1;
-         c1 ="حالت داینامیک فعال";
+        c1 ="حالت داینامیک فعال";
         var bank = [c1];
         var num = Math.floor(Math.random() * 1);
         var ANS = bank[num] + name;
@@ -107,7 +110,7 @@ function short_ANS(cond){
     }
     if(cond == 'imp'){
         var c1;
-         c1 ="حالت یاد گیری فعال";
+        c1 ="حالت یاد گیری فعال";
         var bank = [c1,];
         var num = Math.floor(Math.random() * 1);
         var ANS = bank[num] + name;
@@ -349,7 +352,11 @@ c25,c26,c27,c28,c29,c30,c31,c32,c33,c34,c35,c36,c37,c38,c39,c40;
     d4="به تو چ"; 
     d5="ب ت چه"; 
     d6="به تو چه"; 
-    var bank = [d1,d2,d3,d4,d5,d6,]; 
+    d7="به ش چه"; 
+    d8="به شما چه"; 
+    d9="به ط چه"; 
+    d10="ب ط چ"; 
+    var bank = [d1,d2,d3,d4,d5,d6,d7,d8,d9,d10]; 
     for(var i = 0;i < bank.length;i++){ 
          var an = search(value , bank[i]); 
          if(an){ 
@@ -1038,7 +1045,8 @@ c25,c26,c27,c28,c29,c30,c31,c32,c33,c34,c35,c36,c37,c38,c39,c40;
     d3="شب شیک"; 
     d4="شب بخیر"; 
     d5="شو بخیر"; 
-    var bank = [d1,d2,d3,d4,d5,]; 
+    d6="شب خش"; 
+    var bank = [d1,d2,d3,d4,d5,d6]; 
     for(var i = 0;i < bank.length;i++){ 
          var an = search(value , bank[i]); 
          if(an){ 
@@ -1930,6 +1938,7 @@ c25,c26,c27,c28,c29,c30,c31,c32,c33,c34,c35,c36,c37,c38,c39,c40;
         var ANS = bank[num];
         return ANS;
 }
+
 function search(value , sh){
     if(value == null){
         return false;
@@ -1976,7 +1985,7 @@ function know_preson(name,value,MY_BOT,Last_MS,Last_MS_1,type_us,name_base){
                     person.removeChild(person.childNodes[i]);
                     var ANS = short_ANS('unknow')+'\n\n';
                     ANS += 'اسمم بهار دخترم ⓵\nاسمم مهدی پسرم ⓶';
-                    formatchat('validate',ANS);
+                    return formatchat('validate',ANS);
                 }
             }
            
@@ -1986,12 +1995,12 @@ function know_preson(name,value,MY_BOT,Last_MS,Last_MS_1,type_us,name_base){
     if(value == 'حالت هوشمند خاموش'){
         document.getElementById('mood').innerHTML = 'off';
          var ANS = short_ANS("off_mood");
-         formatchat('state',ANS);
+         return formatchat('state',ANS);
     }
     if(value == 'حالت هوشمند روشن'){
         var OFFON =document.getElementById('mood').innerHTML = 'on';
          var ANS = short_ANS("on_mood");
-         formatchat('state',ANS);
+         return formatchat('state',ANS);
     }
    var ans = search(value , 'حالت ارام');
    if(ans){
@@ -2001,7 +2010,7 @@ function know_preson(name,value,MY_BOT,Last_MS,Last_MS_1,type_us,name_base){
         var time_n = value.substring((pos_1+1),pos_2);
         document.getElementById('time').innerHTML = time_n;
         var ANS = short_ANS("time");
-        formatchat('state',ANS);
+        return formatchat('state',ANS);
    }
     var ans = search(value , 'ربات');
     var ans_1 = search(value , 'بات');
@@ -2021,19 +2030,19 @@ function know_preson(name,value,MY_BOT,Last_MS,Last_MS_1,type_us,name_base){
    if(ans){
            var FAl = Game_FAl();
            var ANS = name +" "+ 'جونم' + ' '+"اینم فالی که برات گرفتم"+" \n\n "+FAl;
-           formatchat('Omen',ANS);
+           return formatchat('Omen',ANS);
    }   
    ans = search(value , 'اعتراف' );
    if(ans){
            var ETR = Game_ETR();
            var ANS = name +" "+ 'جونم' + ' '+"اینم ی اعتراف از ی بنده خدا"+" \n\n "+ETR;
-           formatchat('Confess',ANS);
+           return formatchat('Confess',ANS);
    }
    ans = search(value , 'چالش' );
    if(ans){
            var CHL = Game_CHL();
            var ANS = name+" "+"جونم\n\n"+CHL;
-           formatchat('Challenge',ANS);
+           return formatchat('Challenge',ANS);
    }
    
    
@@ -2072,7 +2081,7 @@ function know_preson(name,value,MY_BOT,Last_MS,Last_MS_1,type_us,name_base){
 
         var ANS = sh + '\n' + '\n'+ typefa + '\n' + '\n'+ '______' + '\n' + ml + '\n'  + '\n'+ typeeg;
         
-        formatchat('DATE',ANS);
+        return formatchat('DATE',ANS);
     }    
 
    if(value == 'امار' ){
@@ -2113,7 +2122,7 @@ function know_preson(name,value,MY_BOT,Last_MS,Last_MS_1,type_us,name_base){
         }
         ANS += '\n'+'⊶'+'تعداد افراد فعال گپ'+' : '+(users_length-1)+'\n';
         ANS += '⊷'+'تعداد کل پیام :'+' '+all_ms;
-        formatchat('Statistics',ANS);
+        return formatchat('Statistics',ANS);
    }      
 
    ans = search(value , 'بگو');

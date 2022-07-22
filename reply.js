@@ -77,7 +77,11 @@ c25,c26,c27,c28,c29,c30,c31,c32,c33,c34,c35,c36,c37,c38,c39,c40;
     d4="به تو چ"; 
     d5="ب ت چه"; 
     d6="به تو چه"; 
-    var bank = [d1,d2,d3,d4,d5,d6,]; 
+    d7="به ش چه"; 
+    d8="به شما چه"; 
+    d9="به ط چه"; 
+    d10="ب ط چ"; 
+    var bank = [d1,d2,d3,d4,d5,d6,d7,d8,d9,d10]; 
     for(var i = 0;i < bank.length;i++){ 
          var an = search(value , bank[i]); 
          if(an){ 
@@ -766,7 +770,8 @@ c25,c26,c27,c28,c29,c30,c31,c32,c33,c34,c35,c36,c37,c38,c39,c40;
     d3="شب شیک"; 
     d4="شب بخیر"; 
     d5="شو بخیر"; 
-    var bank = [d1,d2,d3,d4,d5,]; 
+    d6="شب خش"; 
+    var bank = [d1,d2,d3,d4,d5,d6]; 
     for(var i = 0;i < bank.length;i++){ 
          var an = search(value , bank[i]); 
          if(an){ 
